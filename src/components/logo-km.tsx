@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { cn } from "@/lib/utils";
+import { cn, withBasePath } from "@/lib/utils";
 
 type LogoKmProps = {
   className?: string;
@@ -9,7 +9,7 @@ type LogoKmProps = {
 export function LogoKm({ className, title = "Keven Miano" }: LogoKmProps) {
   return (
     <Image
-      src="/images/keven-miano-signature.png"
+      src={withBasePath("/images/keven-miano-signature.png")}
       alt={title}
       width={148}
       height={38}

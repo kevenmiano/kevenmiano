@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { cn } from "@/lib/utils";
+import { cn, withBasePath } from "@/lib/utils";
 
 type BrandMarkProps = {
   className?: string;
@@ -12,7 +12,7 @@ export function BrandMark({
 }: BrandMarkProps) {
   return (
     <Image
-      src="/images/keven-miano-signature.png"
+      src={withBasePath("/images/keven-miano-signature.png")}
       alt={title}
       width={148}
       height={38}

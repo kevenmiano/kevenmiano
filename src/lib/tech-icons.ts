@@ -1,3 +1,5 @@
+import { withBasePath } from "@/lib/utils";
+
 const TECH_ICON_SRC: Record<string, string> = {
   react: "/images/tech/react.svg",
   "next.js": "/images/tech/nextjs.svg",
@@ -39,5 +41,6 @@ const TECH_ICON_SRC: Record<string, string> = {
 };
 
 export function getTechIconSrc(label: string): string | null {
-  return TECH_ICON_SRC[label.trim().toLowerCase()] ?? null;
+  const src = TECH_ICON_SRC[label.trim().toLowerCase()] ?? null;
+  return src ? withBasePath(src) : null;
 }

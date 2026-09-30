@@ -13,6 +13,7 @@ import {
 } from "@/components/landing/hud";
 import { cyberpunkAudio } from "@/lib/cyberpunk-audio";
 import { handleNavClick } from "@/lib/smooth-scroll";
+import { withBasePath } from "@/lib/utils";
 
 export const CYBERPUNK_STORAGE_KEY = "lp-cyberpunk";
 export const CYBERPUNK_CLASS = "lp-cyberpunk";
@@ -258,7 +259,7 @@ function PortraitSlats({ src, alt }: { src: string; alt: string }) {
             className="absolute inset-0 will-change-transform"
           >
             <Image
-              src={src}
+              src={withBasePath(src)}
               alt={alt}
               fill
               priority
