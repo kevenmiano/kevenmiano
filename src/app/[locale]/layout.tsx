@@ -153,6 +153,8 @@ export default async function LocaleLayout({ children }: Props) {
     ],
   };
 
+  const assetBase = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
   return (
     <html
       lang={localeHtmlLang[locale]}
@@ -165,6 +167,28 @@ export default async function LocaleLayout({ children }: Props) {
       )}
     >
       <body className="relative isolate min-h-full font-[family-name:var(--font-body)]">
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+@media (pointer: fine) {
+  :root {
+    --cursor-default: url("${assetBase}/images/cursors/cursor-default.svg") 6 2, auto;
+    --cursor-pointer: url("${assetBase}/images/cursors/cursor-pointer.svg") 16 16, pointer;
+    --cursor-text: url("${assetBase}/images/cursors/cursor-text.svg") 16 16, text;
+    --cursor-grab: url("${assetBase}/images/cursors/cursor-grab.svg") 16 16, grab;
+    --cursor-grabbing: url("${assetBase}/images/cursors/cursor-grab.svg") 16 16, grabbing;
+  }
+  html.lp-cyberpunk {
+    --cursor-default: url("${assetBase}/images/cursors/cyber-default.svg") 6 2, auto;
+    --cursor-pointer: url("${assetBase}/images/cursors/cyber-pointer.svg") 16 16, pointer;
+    --cursor-text: url("${assetBase}/images/cursors/cyber-text.svg") 16 16, text;
+    --cursor-grab: url("${assetBase}/images/cursors/cyber-grab.svg") 16 16, grab;
+    --cursor-grabbing: url("${assetBase}/images/cursors/cyber-grab.svg") 16 16, grabbing;
+  }
+}
+`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

@@ -265,22 +265,6 @@ html:not(.lp-cyberpunk) [data-lp-section="contact"] {
 }
 
 @media (pointer: fine) {
-  :root {
-    --cursor-default: url("/images/cursors/cursor-default.svg") 6 2, auto;
-    --cursor-pointer: url("/images/cursors/cursor-pointer.svg") 16 16, pointer;
-    --cursor-text: url("/images/cursors/cursor-text.svg") 16 16, text;
-    --cursor-grab: url("/images/cursors/cursor-grab.svg") 16 16, grab;
-    --cursor-grabbing: url("/images/cursors/cursor-grab.svg") 16 16, grabbing;
-  }
-
-  html.lp-cyberpunk {
-    --cursor-default: url("/images/cursors/cyber-default.svg") 6 2, auto;
-    --cursor-pointer: url("/images/cursors/cyber-pointer.svg") 16 16, pointer;
-    --cursor-text: url("/images/cursors/cyber-text.svg") 16 16, text;
-    --cursor-grab: url("/images/cursors/cyber-grab.svg") 16 16, grab;
-    --cursor-grabbing: url("/images/cursors/cyber-grab.svg") 16 16, grabbing;
-  }
-
   html,
   body {
     cursor: var(--cursor-default);

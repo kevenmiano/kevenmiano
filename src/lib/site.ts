@@ -1,10 +1,12 @@
 import { getPathname } from "@/i18n/navigation";
-import { routing, type Locale } from "@/i18n/routing";
+import { type Locale, routing } from "@/i18n/routing";
 
 export const siteConfig = {
   name: "Keven Miano",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://kevenmiano.com",
-  ogImage: "/images/keven-hero-cutout.png",
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    "https://kevenmiano.github.io/kevenmiano",
+  ogImage: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/keven-hero-cutout.png`,
 } as const;
 
 export const localeHtmlLang: Record<Locale, string> = {
@@ -27,8 +29,11 @@ export function getLocalizedPathname(locale: Locale, href: "/" = "/") {
 }
 
 export function getLocalizedUrl(locale: Locale, href: "/" = "/") {
-  const pathname = getLocalizedPathname(locale, href);
-  return new URL(pathname, siteConfig.url).toString();
+  const pathname = getLocalizedPathname(locale, href).replace(/^\//, "");
+  const root = siteConfig.url.endsWith("/")
+    ? siteConfig.url
+    : `${siteConfig.url}/`;
+  return new URL(pathname, root).toString();
 }
 
 export function getLanguageAlternates(href: "/" = "/") {
