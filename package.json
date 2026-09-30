@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build && node scripts/write-pages-index.mjs",
-    "start": "next start",
+    "dev": "NEXT_TELEMETRY_DISABLED=1 next dev",
+    "build": "NEXT_TELEMETRY_DISABLED=1 next build && node scripts/write-pages-index.mjs",
+    "start": "NEXT_TELEMETRY_DISABLED=1 next start",
     "lint": "biome check",
     "lint:fix": "biome check --write",
     "format": "biome format --write",
-    "prepare": "husky"
+    "prepare": "husky",
+    "telemetry:disable": "next telemetry disable"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,css,mjs,cjs}": [

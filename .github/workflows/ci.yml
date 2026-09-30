@@ -39,5 +39,6 @@ jobs:
       - name: Build
         run: pnpm build
         env:
+          NEXT_TELEMETRY_DISABLED: 1
           PAGES_BASE_PATH: /kevenmiano
           NEXT_PUBLIC_SITE_URL: https://kevenmiano.github.io/kevenmiano
