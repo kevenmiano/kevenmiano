@@ -36,9 +36,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
       - name: Restore Next.js cache
         uses: actions/cache@v4
         with:
