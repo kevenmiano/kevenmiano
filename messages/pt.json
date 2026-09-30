@@ -1,0 +1,304 @@
+{
+  "Metadata": {
+    "title": "Keven Lucas — Engenheiro de Software Sênior",
+    "description": "Engenheiro de Software Sênior em Londrina. Full stack com foco em backend — React, Next.js, Go, Node.js, NestJS, cloud, IoT e IA.",
+    "keywords": "Keven Lucas, engenheiro de software, senior software engineer, Londrina, full stack, backend, React, Next.js, Go, Node.js, NestJS, cloud, IoT, inteligência artificial",
+    "siteName": "Keven Lucas",
+    "ogImageAlt": "Retrato de Keven Lucas, engenheiro de software sênior"
+  },
+  "Nav": {
+    "about": "Sobre",
+    "cases": "Cases",
+    "experience": "Experiência",
+    "education": "Formação",
+    "contact": "Contato",
+    "contactUs": "Fale comigo",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu"
+  },
+  "LocaleSwitcher": {
+    "label": "Idioma",
+    "pt": "PT",
+    "en": "EN"
+  },
+  "Hero": {
+    "line1": "Keven",
+    "line2": "Miano",
+    "line3": "",
+    "tagline": "Look beyond limits.",
+    "getInTouch": "Entre em contato",
+    "emailAria": "Email",
+    "starOpen": "Mostrar Look beyond limits",
+    "starClose": "Fechar mensagem",
+    "cyberpunkOn": "Ativar Braindance Editor",
+    "cyberpunkOff": "Sair do Braindance Editor",
+    "cyberpunkMute": "Silenciar áudio do braindance",
+    "cyberpunkUnmute": "Ativar áudio do braindance",
+    "rebootTitle": "BRAINDANCE",
+    "rebootTracking": "SYNC // HOLD",
+    "rebootHold": "Segure para sincronizar",
+    "rebootHolding": "SEGURA AÍ, CAMARADA…",
+    "rebootOffline": "SISTEMA DESLIGADO",
+    "rebootOfflineSub": "kkkk mentira. drop cancelado — cold boot",
+    "rebootInit": "BOOTSTRAP // MENTIRAS ÚTEIS",
+    "rebootAbort": "Solte para cancelar · Esc para abortar",
+    "rebootDropTease": "AGORA O DROPPP BATE—",
+    "rebootTrollLines": [
+      "isso, segura firme, herói do dedo",
+      "nossa… que commit muscular",
+      "seu ego já tá no freio e subindo",
+      "calma, Night City ainda não ligou pra você",
+      "quase… quase… não solta, covarde",
+      "o drop tá vindo, juro pela lace",
+      "preparando o beat que vai te demitir",
+      "3… 2… 1… confiança máxima"
+    ],
+    "rebootInitLines": [
+      "hahaha você acreditou no drop",
+      "carregando ego… buffer overflow no bom senso",
+      "humildade.dll — arquivo não encontrado (404)",
+      "injetando cortisol de produção no bloodstream",
+      "calibrando sarcasmo do visor ±3dB",
+      "git blame --self → access denied, nice try",
+      "montando /dev/bullshit… ok",
+      "Night City não liga pro seu standup",
+      "aviso: você ainda é o bug nas patch notes",
+      "REC armado. sorria pra demissão",
+      "braindance online — não pisque, covarde"
+    ],
+    "rebootQuotes": [
+      "Quem entrega mais, aparece mais. Lace quente, commit frio.",
+      "Backend, cloud e produto no mesmo ritmo — Night City não espera.",
+      "Cobertura é o capacete do deploy: protege de laser e de hotfix às 3h.",
+      "Sincronizando braindance… não pisque."
+    ],
+    "headline": "Quem entrega mais, aparece mais.",
+    "quote": "Quem entrega mais, aparece mais. Backend, cloud e produto no mesmo ritmo.",
+    "quoteName": "Keven Miano",
+    "quoteRole": "Software Engineer",
+    "featureTitle": "Backend · cloud · produto",
+    "featureBody": "Arquitetura, integrações financeiras, IoT e IA — com resultado de negócio no centro.",
+    "learnMore": "Saiba mais",
+    "statYears": "anos de experiência",
+    "statDownloads": "downloads em plugins",
+    "statCapital": "em operações viabilizadas",
+    "statEfficiency": "redução de custo operacional",
+    "marquee": "Golang · Next.js · NestJS · Node.js · React · AWS · Kubernetes · Docker · GraphQL · IoT · NATS · MQTT · GitOps · Argo CD · OpenAI · Python",
+    "backdropStories": [
+      { "kicker": "Cloud", "title": "Arquitetura que escala sem drama", "lines": 5 },
+      { "kicker": "Backend", "title": "APIs que aguentam o pico", "lines": 4 },
+      { "kicker": "Produto", "title": "Do brief à produção em ritmo", "lines": 6 },
+      { "kicker": "IoT", "title": "Dispositivos falando a mesma língua", "lines": 4 },
+      { "kicker": "IA", "title": "Modelos no fluxo do negócio", "lines": 5 },
+      { "kicker": "Fintech", "title": "Integrações que fecham o caixa", "lines": 4 },
+      { "kicker": "DevOps", "title": "GitOps com rollback limpo", "lines": 5 },
+      { "kicker": "Frontend", "title": "Interfaces que não travam o ship", "lines": 4 },
+      { "kicker": "Carreira", "title": "Quem entrega mais, aparece mais", "lines": 6 }
+    ]
+  },
+  "Profile": {
+    "brand": "Keven Miano",
+    "name": "Keven Miano",
+    "fullName": "Keven Lucas Santos Miano",
+    "role": "Engenheiro de Software Sênior",
+    "location": "Londrina, Paraná, Brasil",
+    "email": "k_l.s@outlook.com",
+    "linkedin": "https://linkedin.com/in/kevenmiano",
+    "phone": "(43) 99120-4544",
+    "phoneHref": "tel:+5543991204544",
+    "portrait": "/images/keven-hero-cutout-transparent.png",
+    "portraitLaptop": "/images/keven-neo-lookup-transparent.png",
+    "portraitBoot": "/images/keven-bio-standing-cutout-transparent.png",
+    "summary": "Engenheiro de Software com foco em backend e entrega full stack ponta a ponta. Atuo da arquitetura à operação em cloud, construindo produtos digitais, integrações financeiras, IoT e soluções com inteligência artificial — sempre com impacto mensurável no negócio."
+  },
+  "About": {
+    "eyebrow": "Quem sou",
+    "floatCard": "Quem entrega mais, aparece mais.",
+    "floatHighlight": "aparece mais",
+    "certified": "Backend, cloud, full stack e IA no dia a dia"
+  },
+  "Cases": {
+    "eyebrow": "Cases",
+    "title": "Marcos da trajetória",
+    "openNews": "Abrir notícia de {company}",
+    "items": [
+      {
+        "id": "years",
+        "kind": "stat",
+        "value": "7+",
+        "label": "anos de experiência"
+      },
+      {
+        "id": "typper",
+        "kind": "case",
+        "company": "TYPPER",
+        "href": "https://startups.com.br/negocios/ma/arvore-anuncia-aquisicoes-para-acelerar-leitura-nas-escolas/",
+        "quote": "MVP da Typper que contribuiu para a aquisição pela Árvore. Colaborei ativamente nos plugins de inteligência artificial do Figma, que somam 120 mil downloads.",
+        "highlight": "plugins de inteligência artificial do Figma"
+      },
+      {
+        "id": "bankme",
+        "kind": "case",
+        "company": "BANKME",
+        "href": "https://finsidersbrasil.com.br/reportagem-exclusiva-fintechs/com-r-45-milhoes-em-carteira-bankme-prepara-seu-primeiro-fidc-e-planeja-chegar-a-240-minibancos-em-2023/",
+        "quote": "Colaborei ativamente no squad de integração: integrei ERPs externos com automação bancária, viabilizando R$ 25 milhões em operações de CDBs — corroborando o valuation de R$ 45 milhões e os KPIs da operação.",
+        "highlight": "R$ 25 milhões em operações de CDBs"
+      },
+      {
+        "id": "v3",
+        "kind": "case",
+        "company": "V3",
+        "href": "https://developer.v3control.com/docs/docs",
+        "quote": "Modernização do legado e refatoração desacoplando o vendor lock, com redução de 30% no custo operacional e arquitetura multi-tenant orientada a eventos e microsserviços.",
+        "highlight": "redução de 30% no custo operacional"
+      }
+    ]
+  },
+  "Experience": {
+    "eyebrow": "Experiência",
+    "title": "Trajetória completa",
+    "branchMain": "main",
+    "branchHead": "HEAD",
+    "branchPromo": "promote",
+    "branchFeature": "feature",
+    "items": [
+      {
+        "company": "V3 Tecnologia",
+        "role": "Engenheiro de Software Sênior",
+        "location": "Londrina, Paraná",
+        "period": "Setembro de 2024 – Atual",
+        "stack": ["Golang", "Next.js", "GitOps", "Argo CD", "Kubernetes", "AWS", "IoT", "NATS", "MQTT"],
+        "highlights": [
+          "Liderei a construção da nova arquitetura robusta e agnóstica a cloud provider.",
+          "Estruturei a base técnica para suportar crescimento, novos clientes e uma operação multi-tenant.",
+          "Atuei na melhoria de eficiência, segurança e estabilidade do produto ao priorizar os principais gargalos do negócio."
+        ]
+      },
+      {
+        "company": "Férias & Co.",
+        "role": "Engenheiro de Software",
+        "location": "Remoto",
+        "period": "Janeiro de 2024 – Setembro de 2024",
+        "stack": ["Kraken", "Harness", "C#", "Angular", "Microfrontends"],
+        "highlights": [
+          "Melhorei processos críticos de pós-venda para reduzir fricções na operação e no atendimento ao cliente.",
+          "Simplifiquei o fluxo de suporte e chamados, contribuindo para uma resposta mais eficiente ao usuário.",
+          "Apoiei a evolução do processo de desenvolvimento, aumentando a previsibilidade e a produtividade do time."
+        ]
+      },
+      {
+        "company": "Typper",
+        "role": "Consultor de Tecnologia",
+        "location": "São Paulo, Brasil",
+        "period": "Março de 2023 – Novembro de 2023",
+        "stack": ["Electron.js", "React", "Preact", "OpenAI"],
+        "highlights": [
+          "Transformei uma oportunidade de produto em um MVP funcional que contribuiu para a aquisição pela Árvore.",
+          "Estruturei uma experiência de trabalho mais ágil para designers, reduzindo etapas manuais no fluxo de criação.",
+          "Ajudei a definir a direção técnica e de produto para incorporar inteligência artificial à solução."
+        ]
+      },
+      {
+        "company": "Bankme",
+        "role": "Engenheiro de Software Pleno II",
+        "location": "Londrina, Paraná",
+        "period": "Dezembro de 2022 – Novembro de 2023",
+        "stack": ["Node.js", "GraphQL", "React", "Next.js", "AWS", "NestJS"],
+        "highlights": [
+          "Atuei na construção do produto que levou a empresa ao breakeven com R$ 45 milhões em carteira.",
+          "Desenvolvi integrações estratégicas que ampliaram a capacidade de aquisição e ativação de novos clientes.",
+          "Ajudei a viabilizar cerca de R$ 25 milhões em operações de investimento, fortalecendo a proposta de valor da plataforma.",
+          "Evoluí a arquitetura do produto para aumentar a confiabilidade e a capacidade de crescimento do negócio."
+        ]
+      },
+      {
+        "company": "Bankme",
+        "role": "Engenheiro de Software Júnior I",
+        "location": "Londrina, Paraná",
+        "period": "Outubro de 2021 – Dezembro de 2022",
+        "stack": ["Node.js", "GraphQL", "React", "Next.js", "AWS", "NestJS"],
+        "highlights": [
+          "Contribuí para a evolução de produtos financeiros digitais em uma fase de crescimento da empresa.",
+          "Apoiei o desenvolvimento de funcionalidades voltadas à operação e à experiência dos clientes da plataforma."
+        ]
+      },
+      {
+        "company": "SCOD Brasil",
+        "role": "Engenheiro de Software Júnior",
+        "location": "Londrina, Paraná",
+        "period": "Junho de 2021 – Outubro de 2021",
+        "stack": ["Docker", "Flask", "Python", "Selenium", "Web Scraping"],
+        "highlights": [
+          "Participei da criação do MVP que apoiou a validação inicial do produto no mercado.",
+          "Modernizei a experiência digital para tornar a jornada do cliente mais eficiente e favorecer conversão.",
+          "Evoluí um sistema legado, reduzindo limitações técnicas e melhorando a usabilidade da solução."
+        ]
+      },
+      {
+        "company": "SCOD Brasil",
+        "role": "Estagiário de TI",
+        "location": "Londrina, Paraná",
+        "period": "Janeiro de 2021 – Agosto de 2021",
+        "stack": ["Docker", "Flask", "Python", "Selenium", "Web Scraping"],
+        "highlights": [
+          "Apoiei o time de tecnologia na manutenção e evolução de soluções internas.",
+          "Colaborei com demandas de desenvolvimento e suporte que sustentaram a operação diária."
+        ]
+      }
+    ]
+  },
+  "Education": {
+    "eyebrow": "Formação",
+    "title": "Formação acadêmica",
+    "certsTitle": "Certificações e cursos",
+    "items": [
+      {
+        "school": "UNOPAR – Universidade Norte do Paraná",
+        "course": "CST em Análise e Desenvolvimento de Sistemas",
+        "location": "Londrina, Paraná",
+        "period": "2020 – 2022",
+        "kind": "Graduação"
+      },
+      {
+        "school": "UNOPAR – Universidade Norte do Paraná",
+        "course": "Engenharia de Software com Ênfase em Qualidade e Teste de Software",
+        "location": "Londrina, Paraná",
+        "period": "Fevereiro de 2022 – Novembro de 2022",
+        "kind": "Especialização"
+      }
+    ],
+    "certs": [
+      {
+        "title": "Scrum Foundation Professional Certificate (SFPC)",
+        "kind": "Certificação"
+      },
+      {
+        "title": "Tecnologia, Direito Digital e Propriedade Intelectual",
+        "kind": "Curso"
+      },
+      {
+        "title": "Rocketseat Ignite Foundation",
+        "kind": "Curso",
+        "issuer": "Rocketseat"
+      }
+    ]
+  },
+  "Contact": {
+    "eyebrow": "Contato",
+    "title": "Vamos construir algo juntos.",
+    "description": "Aberto a conversas sobre produtos, plataformas e desafios de engenharia.",
+    "emailAria": "Email {email}",
+    "phoneAria": "Telefone {phone}",
+    "linkedin": "LinkedIn",
+    "edition": "Sinal aberto",
+    "classifieds": "Briefing",
+    "channels": "Comms",
+    "emailLabel": "Mail",
+    "phoneLabel": "Voice",
+    "credit": "Operador {name}"
+  },
+  "Roles": {
+    "titles": ["AI Engineer", "Product Engineer", "Software Engineer"],
+    "support": "A nova era do Forward Deployed Engineer (FDE): quem une IA, produto e engenharia para colocar sistemas reais em produção — perto do problema, não só do código."
+  }
+}
