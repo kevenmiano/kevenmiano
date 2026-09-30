@@ -152,13 +152,10 @@ export function CircularMenu({
         );
       if (closeBtn)
         exit.to(closeBtn, { autoAlpha: 0, y: -8, duration: 0.22 }, 0);
-      if (footerEl) exit.to(footerEl, { autoAlpha: 0, y: 10, duration: 0.2 }, 0);
+      if (footerEl)
+        exit.to(footerEl, { autoAlpha: 0, y: 10, duration: 0.2 }, 0);
       exit
-        .to(
-          indexes ?? [],
-          { autoAlpha: 0, duration: 0.2, stagger: 0.03 },
-          0,
-        )
+        .to(indexes ?? [], { autoAlpha: 0, duration: 0.2, stagger: 0.03 }, 0)
         .to(
           links ?? [],
           {

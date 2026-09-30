@@ -218,7 +218,14 @@ class CyberpunkAudio {
   }
 
   bootCue(
-    kind: "tick" | "sys" | "ready" | "scan" | "link" | "reboot" | "init" = "tick",
+    kind:
+      | "tick"
+      | "sys"
+      | "ready"
+      | "scan"
+      | "link"
+      | "reboot"
+      | "init" = "tick",
   ) {
     if (kind === "reboot") {
       this.play("open", { force: true });
@@ -381,7 +388,8 @@ class CyberpunkAudio {
 
     const id = this.musicId;
     const armDrop = () => {
-      if (!this.music || this.musicPhase !== "drop" || this.musicId !== id) return;
+      if (!this.music || this.musicPhase !== "drop" || this.musicId !== id)
+        return;
       this.music.rate(1, id);
       this.music.seek(DROP_START, id);
       this.music.volume(0, id);
@@ -398,7 +406,11 @@ class CyberpunkAudio {
       const loopId = this.musicId;
       this.music.rate(1, loopId);
       const armLoop = () => {
-        if (!this.music || this.musicPhase !== "drop" || this.musicId !== loopId) {
+        if (
+          !this.music ||
+          this.musicPhase !== "drop" ||
+          this.musicId !== loopId
+        ) {
           return;
         }
         this.music.seek(DROP_START, loopId);

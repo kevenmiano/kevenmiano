@@ -114,11 +114,7 @@ function buildNodes(items: GitflowJob[]): FlowNode[] {
         job.role.toLowerCase().includes("consultor") ||
         job.role.toLowerCase().includes("consultant"));
 
-    const kind: FlowKind = isPromo
-      ? "promo"
-      : isFeature
-        ? "feature"
-        : "main";
+    const kind: FlowKind = isPromo ? "promo" : isFeature ? "feature" : "main";
 
     return {
       id: `${job.company}-${job.role}-${job.period}`,
@@ -280,6 +276,8 @@ export function GitflowTrajectory({
                     height={SVG_H}
                     preserveAspectRatio="xMidYMid meet"
                     fill="none"
+                    aria-hidden
+                    focusable="false"
                   >
                     <path
                       data-lp-gitflow-main

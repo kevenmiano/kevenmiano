@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
+import {
+  DM_Sans,
+  Saira_Extra_Condensed,
+  Space_Grotesk,
+  Syne,
+} from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
-import { DM_Sans, Saira_Extra_Condensed, Space_Grotesk, Syne } from "next/font/google";
 import { ScrollReset } from "@/components/scroll-reset";
-import { routing, type Locale } from "@/i18n/routing";
+import { type Locale, routing } from "@/i18n/routing";
 import {
   getLanguageAlternates,
   getLocalizedUrl,

@@ -74,7 +74,7 @@ export function smoothScrollTo(
 }
 
 export function handleNavClick(
-  event: MouseEvent<HTMLAnchorElement>,
+  event: MouseEvent<HTMLElement>,
   href: string,
   options?: SmoothScrollOptions,
 ) {

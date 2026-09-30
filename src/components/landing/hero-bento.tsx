@@ -4,11 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import {
-  useRef,
-  type MouseEvent,
-  type ReactNode,
-} from "react";
+import { type MouseEvent, type ReactNode, useRef } from "react";
 import {
   HudCorners,
   HudCta,
@@ -154,7 +150,8 @@ function PortraitSlats({ src, alt }: { src: string; alt: string }) {
 
   useGSAP(
     () => {
-      const slats = rootRef.current?.querySelectorAll<HTMLElement>("[data-lp-slat]");
+      const slats =
+        rootRef.current?.querySelectorAll<HTMLElement>("[data-lp-slat]");
       if (!slats?.length) return;
 
       gsap.from(slats, {
@@ -195,7 +192,9 @@ function PortraitSlats({ src, alt }: { src: string; alt: string }) {
         opacity: active ? 1 : 0.42,
         borderColor: active ? accent : "#000000",
         boxShadow: active ? "4px 4px 0 #000" : "0px 0px 0 #000",
-        backgroundColor: active ? `color-mix(in srgb, ${accent} 8%, transparent)` : "rgba(0,0,0,0)",
+        backgroundColor: active
+          ? `color-mix(in srgb, ${accent} 8%, transparent)`
+          : "rgba(0,0,0,0)",
         duration: reduceMotion ? 0 : 0.35,
         ease: "power2.out",
         overwrite: "auto",
@@ -248,10 +247,16 @@ function PortraitSlats({ src, alt }: { src: string; alt: string }) {
   });
 
   return (
-    <div ref={rootRef} className="absolute inset-0 z-[1] overflow-hidden rounded-none bg-white p-1.5 sm:rounded-[1.6rem] sm:p-3">
+    <div
+      ref={rootRef}
+      className="absolute inset-0 z-[1] overflow-hidden rounded-none bg-white p-1.5 sm:rounded-[1.6rem] sm:p-3"
+    >
       <div className="relative h-full w-full pt-1.5 sm:pt-2">
         <div className="lp-portrait-stage absolute inset-x-0 top-1.5 bottom-0 overflow-hidden rounded-none bg-[#f3efe4] sm:top-2 sm:rounded-[1.35rem]">
-          <div ref={imgWrapRef} className="absolute inset-0 will-change-transform">
+          <div
+            ref={imgWrapRef}
+            className="absolute inset-0 will-change-transform"
+          >
             <Image
               src={src}
               alt={alt}
@@ -293,17 +298,15 @@ function PortraitSlats({ src, alt }: { src: string; alt: string }) {
 
 function CircleBadge({
   label,
-  href,
   onNavigate,
 }: {
   label: string;
-  href: string;
-  onNavigate: (event: MouseEvent<HTMLAnchorElement>) => void;
+  onNavigate: (event: MouseEvent<HTMLElement>) => void;
 }) {
   return (
-    <a
-      href={href}
-      onClick={onNavigate}
+    <button
+      type="button"
+      onClick={(event) => onNavigate(event)}
       data-lp-chrome="btn"
       className="group relative inline-flex size-[5.25rem] shrink-0 flex-col items-center justify-center gap-1.5 border-[3px] border-black bg-[var(--lp-hud)] text-[var(--lp-accent)] shadow-[4px_4px_0_#000] transition-colors hover:bg-[var(--lp-accent)] hover:text-black sm:size-[6.5rem] sm:gap-2 sm:shadow-[5px_5px_0_#000] md:size-[7.25rem]"
       aria-label={label}
@@ -318,7 +321,7 @@ function CircleBadge({
         {label}
       </span>
       <HudCorners tone="accent" />
-    </a>
+    </button>
   );
 }
 
@@ -405,7 +408,11 @@ function TextLines({ count }: { count: number }) {
 }
 
 function NewspaperBackdrop({ stories }: { stories: BackdropStory[] }) {
-  const columns = [stories.slice(0, 3), stories.slice(3, 6), stories.slice(6, 9)];
+  const columns = [
+    stories.slice(0, 3),
+    stories.slice(3, 6),
+    stories.slice(6, 9),
+  ];
 
   return (
     <div
@@ -497,7 +504,10 @@ export function HeroBento({
               <span className="min-w-0 shrink truncate">{nameParts[0]}</span>
               {nameParts.length > 1 ? (
                 <>
-                  <span className="hidden min-w-0 flex-1 text-center text-black/25 sm:inline" aria-hidden>
+                  <span
+                    className="hidden min-w-0 flex-1 text-center text-black/25 sm:inline"
+                    aria-hidden
+                  >
                     ·
                   </span>
                   <span className="min-w-0 shrink truncate text-right">
@@ -530,25 +540,28 @@ export function HeroBento({
                       href={item.href}
                       data-lp-chrome="btn"
                       onClick={(event) => handleNavClick(event, item.href)}
-                      className={`group relative inline-flex min-h-11 shrink-0 items-center gap-2 border-r-[3px] border-black px-3.5 transition-colors lg:min-h-12 lg:gap-2.5 lg:px-4 ${isActive
+                      className={`group relative inline-flex min-h-11 shrink-0 items-center gap-2 border-r-[3px] border-black px-3.5 transition-colors lg:min-h-12 lg:gap-2.5 lg:px-4 ${
+                        isActive
                           ? "text-black"
                           : "bg-[var(--lp-hud)] text-white/55 hover:bg-[var(--lp-hud-raised)] hover:text-[var(--lp-accent)]"
-                        }`}
+                      }`}
                       style={isActive ? { backgroundColor: tone } : undefined}
                       aria-current={isActive ? "true" : undefined}
                     >
                       <span
-                        className={`font-[family-name:var(--font-display)] text-[0.6rem] font-extrabold tracking-[0.12em] tabular-nums ${isActive ? "text-black/55" : "text-white/30"
-                          }`}
+                        className={`font-[family-name:var(--font-display)] text-[0.6rem] font-extrabold tracking-[0.12em] tabular-nums ${
+                          isActive ? "text-black/55" : "text-white/30"
+                        }`}
                         aria-hidden
                       >
                         {String(index + 1).padStart(2, "0")}
                       </span>
                       <span
-                        className={`size-1.5 shrink-0 rotate-45 border-[1.5px] ${isActive
+                        className={`size-1.5 shrink-0 rotate-45 border-[1.5px] ${
+                          isActive
                             ? "border-black bg-black"
                             : "border-white/35 bg-transparent group-hover:border-[var(--lp-accent)]"
-                          }`}
+                        }`}
                         aria-hidden
                       />
                       <span className="font-[family-name:var(--font-display)] text-[0.7rem] font-extrabold tracking-[0.16em] uppercase lg:text-[0.75rem]">
@@ -609,8 +622,8 @@ export function HeroBento({
                   </span>
                 </div>
 
-                <a
-                  href="#contact"
+                <button
+                  type="button"
                   onClick={(event) => handleNavClick(event, "#contact")}
                   data-lp-chrome="btn"
                   className="relative inline-flex shrink-0 items-center justify-center gap-2 border-l-[3px] border-black bg-[var(--lp-green)] px-3 transition-colors hover:bg-white sm:px-5"
@@ -622,7 +635,7 @@ export function HeroBento({
                     strokeWidth={2.6}
                     aria-hidden
                   />
-                </a>
+                </button>
               </div>
             </article>
 
@@ -634,7 +647,10 @@ export function HeroBento({
                 <div className="min-w-0 flex-1">
                   <RoleCube titles={roleTitles} />
                   {roleSupport ? (
-                    <p className="mt-3 max-w-[48ch] border-t-[3px] border-black pt-3 text-sm leading-snug font-semibold tracking-[-0.015em] text-black/75 sm:mt-5 sm:pt-5 sm:text-lg sm:leading-snug md:text-xl md:leading-[1.35]" data-lp-role-support>
+                    <p
+                      className="mt-3 max-w-[48ch] border-t-[3px] border-black pt-3 text-sm leading-snug font-semibold tracking-[-0.015em] text-black/75 sm:mt-5 sm:pt-5 sm:text-lg sm:leading-snug md:text-xl md:leading-[1.35]"
+                      data-lp-role-support
+                    >
                       {roleSupport}
                     </p>
                   ) : null}
@@ -642,7 +658,6 @@ export function HeroBento({
 
                 <CircleBadge
                   label={copy.learnMore}
-                  href="#cases"
                   onNavigate={(event) => handleNavClick(event, "#cases")}
                 />
               </article>

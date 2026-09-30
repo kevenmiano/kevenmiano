@@ -1,18 +1,18 @@
 "use client";
 
-import {
-  useEffect,
-  useRef,
-  useState,
-  type ComponentPropsWithoutRef,
-  type MouseEvent,
-  type ReactNode,
-} from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { cn } from "@/lib/utils";
+import {
+  type ComponentPropsWithoutRef,
+  type MouseEvent,
+  type ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { cyberpunkAudio } from "@/lib/cyberpunk-audio";
+import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -76,9 +76,7 @@ export function HudDiamond({
     <span
       className={cn(
         "size-1.5 shrink-0 rotate-45 border-[1.5px]",
-        active
-          ? "border-black bg-black"
-          : "border-current/40 bg-transparent",
+        active ? "border-black bg-black" : "border-current/40 bg-transparent",
         className,
       )}
       aria-hidden
@@ -211,12 +209,7 @@ type HudCtaProps = ComponentPropsWithoutRef<"a"> & {
   index?: number | string;
 };
 
-export function HudCta({
-  className,
-  children,
-  index,
-  ...props
-}: HudCtaProps) {
+export function HudCta({ className, children, index, ...props }: HudCtaProps) {
   return (
     <a
       data-lp-chrome="btn"
@@ -290,7 +283,7 @@ export function CyberpunkHudFrame({
   useEffect(() => {
     if (!active) return;
     setMuted(cyberpunkAudio.isMuted());
-  }, [active, enterId]);
+  }, [active]);
 
   useGSAP(
     () => {
@@ -403,9 +396,17 @@ export function CyberpunkHudFrame({
         className="lp-cyber-visor-svg absolute inset-0 size-full"
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
+        aria-hidden
+        focusable="false"
       >
         <defs>
-          <linearGradient id="lp-cyber-visor-stroke" x1="0%" y1="0%" x2="100%" y2="0%">
+          <linearGradient
+            id="lp-cyber-visor-stroke"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="0%"
+          >
             <stop offset="0%" stopColor="var(--cp-cyan)" stopOpacity="0.18" />
             <stop offset="18%" stopColor="var(--cp-red)" stopOpacity="0.95" />
             <stop offset="50%" stopColor="var(--cp-red)" stopOpacity="0.75" />
@@ -462,11 +463,9 @@ export function CyberpunkHudFrame({
           </div>
 
           <div className="lp-cyber-frame-status pointer-events-auto flex flex-wrap items-center justify-end gap-2">
-            <p
-              className="lp-cyber-rec inline-flex w-fit items-center gap-2 px-3 py-1.5 font-[family-name:var(--font-display)] text-[0.65rem] font-extrabold tracking-[0.24em] uppercase sm:text-xs"
-              aria-label="Recording"
-            >
+            <p className="lp-cyber-rec inline-flex w-fit items-center gap-2 px-3 py-1.5 font-[family-name:var(--font-display)] text-[0.65rem] font-extrabold tracking-[0.24em] uppercase sm:text-xs">
               <span className="lp-cyber-rec-dot" aria-hidden />
+              <span className="sr-only">Recording</span>
               REC
             </p>
             <button

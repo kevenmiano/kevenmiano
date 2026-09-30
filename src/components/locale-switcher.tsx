@@ -2,7 +2,7 @@
 
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
-import { routing, type Locale } from "@/i18n/routing";
+import { type Locale, routing } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 
 export function LocaleSwitcher({ className }: { className?: string }) {
@@ -17,11 +17,14 @@ export function LocaleSwitcher({ className }: { className?: string }) {
   };
 
   return (
-    <div
-      role="group"
+    <fieldset
       aria-label={t("label")}
-      className={cn("inline-flex h-full min-h-11 items-stretch lg:min-h-12", className)}
+      className={cn(
+        "m-0 inline-flex h-full min-h-11 items-stretch border-0 p-0 lg:min-h-12",
+        className,
+      )}
     >
+      <legend className="sr-only">{t("label")}</legend>
       <span
         data-lp-chrome="chip"
         className="hidden items-center border-r-[3px] border-black bg-[var(--lp-hud-raised)] px-2.5 font-[family-name:var(--font-display)] text-[0.6rem] font-extrabold tracking-[0.2em] text-white/45 uppercase sm:inline-flex lg:px-3"
@@ -61,6 +64,6 @@ export function LocaleSwitcher({ className }: { className?: string }) {
           </button>
         );
       })}
-    </div>
+    </fieldset>
   );
 }

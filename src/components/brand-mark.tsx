@@ -6,7 +6,10 @@ type BrandMarkProps = {
   title?: string;
 };
 
-export function BrandMark({ className, title = "Keven Miano" }: BrandMarkProps) {
+export function BrandMark({
+  className,
+  title = "Keven Miano",
+}: BrandMarkProps) {
   return (
     <Image
       src="/images/keven-miano-signature.png"

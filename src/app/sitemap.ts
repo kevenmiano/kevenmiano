@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { routing, type Locale } from "@/i18n/routing";
+import { type Locale, routing } from "@/i18n/routing";
 import { getLanguageAlternates, getLocalizedUrl } from "@/lib/site";
 
 export const dynamic = "force-static";

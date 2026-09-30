@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { cyberpunkAudio, HOLD_DURATION_MS } from "@/lib/cyberpunk-audio";
 
 type SplashPhase = "hold" | "shutdown" | "poweron" | "init" | "reveal";
@@ -124,10 +124,7 @@ export function CyberpunkRebootSplash({
 
       const pool = trollLinesRef.current;
       if (holdingRef.current && pool.length > 0 && next > 0.04) {
-        const idx = Math.min(
-          pool.length - 1,
-          Math.floor(next * pool.length),
-        );
+        const idx = Math.min(pool.length - 1, Math.floor(next * pool.length));
         if (idx !== trollIndexRef.current) {
           trollIndexRef.current = idx;
           setTrollIndex(idx);
@@ -203,32 +200,7 @@ export function CyberpunkRebootSplash({
     };
   }, [open, phase]);
 
-  useEffect(() => {
-    if (!open || phase !== "init") return;
-    if (initLines.length === 0) {
-      finishBoot();
-      return;
-    }
-
-    if (lineIndex >= initLines.length) {
-      const timer = window.setTimeout(() => finishBoot(), INIT_TAIL_MS);
-      return () => window.clearTimeout(timer);
-    }
-
-    const timer = window.setTimeout(() => {
-      const line = initLines[lineIndex];
-      if (!line) return;
-      setVisibleLines((prev) => [...prev, line]);
-      setLineIndex((i) => i + 1);
-      cyberpunkAudio.bootCue(lineIndex % 2 === 0 ? "tick" : "sys");
-      setGlitch(true);
-      window.setTimeout(() => setGlitch(false), 60);
-    }, lineIndex === 0 ? 180 : LINE_MS);
-
-    return () => window.clearTimeout(timer);
-  }, [open, phase, lineIndex, initLines]);
-
-  const finishBoot = () => {
+  const finishBoot = useCallback(() => {
     if (doneRef.current) return;
     doneRef.current = true;
     phaseRef.current = "reveal";
@@ -246,7 +218,35 @@ export function CyberpunkRebootSplash({
     }
     window.setTimeout(() => setGlitch(false), 380);
     window.setTimeout(() => onComplete(), REVEAL_MS);
-  };
+  }, [onReveal, onDrop, onComplete]);
+
+  useEffect(() => {
+    if (!open || phase !== "init") return;
+    if (initLines.length === 0) {
+      finishBoot();
+      return;
+    }
+
+    if (lineIndex >= initLines.length) {
+      const timer = window.setTimeout(() => finishBoot(), INIT_TAIL_MS);
+      return () => window.clearTimeout(timer);
+    }
+
+    const timer = window.setTimeout(
+      () => {
+        const line = initLines[lineIndex];
+        if (!line) return;
+        setVisibleLines((prev) => [...prev, line]);
+        setLineIndex((i) => i + 1);
+        cyberpunkAudio.bootCue(lineIndex % 2 === 0 ? "tick" : "sys");
+        setGlitch(true);
+        window.setTimeout(() => setGlitch(false), 60);
+      },
+      lineIndex === 0 ? 180 : LINE_MS,
+    );
+
+    return () => window.clearTimeout(timer);
+  }, [open, phase, lineIndex, initLines, finishBoot]);
 
   useEffect(() => {
     if (!open) return;

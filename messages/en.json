@@ -85,15 +85,51 @@
     "statEfficiency": "operational cost reduction",
     "marquee": "Golang · Next.js · NestJS · Node.js · React · AWS · Kubernetes · Docker · GraphQL · IoT · NATS · MQTT · GitOps · Argo CD · OpenAI · Python",
     "backdropStories": [
-      { "kicker": "Cloud", "title": "Architecture that scales without drama", "lines": 5 },
-      { "kicker": "Backend", "title": "APIs that survive the spike", "lines": 4 },
-      { "kicker": "Product", "title": "From brief to production on pace", "lines": 6 },
-      { "kicker": "IoT", "title": "Devices speaking the same language", "lines": 4 },
-      { "kicker": "AI", "title": "Models inside the business flow", "lines": 5 },
-      { "kicker": "Fintech", "title": "Integrations that close the books", "lines": 4 },
-      { "kicker": "DevOps", "title": "GitOps with clean rollbacks", "lines": 5 },
-      { "kicker": "Frontend", "title": "Interfaces that don't stall the ship", "lines": 4 },
-      { "kicker": "Career", "title": "Who ships more, shows up more", "lines": 6 }
+      {
+        "kicker": "Cloud",
+        "title": "Architecture that scales without drama",
+        "lines": 5
+      },
+      {
+        "kicker": "Backend",
+        "title": "APIs that survive the spike",
+        "lines": 4
+      },
+      {
+        "kicker": "Product",
+        "title": "From brief to production on pace",
+        "lines": 6
+      },
+      {
+        "kicker": "IoT",
+        "title": "Devices speaking the same language",
+        "lines": 4
+      },
+      {
+        "kicker": "AI",
+        "title": "Models inside the business flow",
+        "lines": 5
+      },
+      {
+        "kicker": "Fintech",
+        "title": "Integrations that close the books",
+        "lines": 4
+      },
+      {
+        "kicker": "DevOps",
+        "title": "GitOps with clean rollbacks",
+        "lines": 5
+      },
+      {
+        "kicker": "Frontend",
+        "title": "Interfaces that don't stall the ship",
+        "lines": 4
+      },
+      {
+        "kicker": "Career",
+        "title": "Who ships more, shows up more",
+        "lines": 6
+      }
     ]
   },
   "Profile": {
@@ -167,7 +203,17 @@
         "role": "Senior Software Engineer",
         "location": "Londrina, Paraná",
         "period": "September 2024 – Present",
-        "stack": ["Golang", "Next.js", "GitOps", "Argo CD", "Kubernetes", "AWS", "IoT", "NATS", "MQTT"],
+        "stack": [
+          "Golang",
+          "Next.js",
+          "GitOps",
+          "Argo CD",
+          "Kubernetes",
+          "AWS",
+          "IoT",
+          "NATS",
+          "MQTT"
+        ],
         "highlights": [
           "Led the build of a new robust architecture, agnostic to any cloud provider.",
           "Laid the technical foundation to support growth, new customers, and a multi-tenant operation.",

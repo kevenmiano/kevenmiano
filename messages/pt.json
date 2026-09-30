@@ -85,15 +85,39 @@
     "statEfficiency": "redução de custo operacional",
     "marquee": "Golang · Next.js · NestJS · Node.js · React · AWS · Kubernetes · Docker · GraphQL · IoT · NATS · MQTT · GitOps · Argo CD · OpenAI · Python",
     "backdropStories": [
-      { "kicker": "Cloud", "title": "Arquitetura que escala sem drama", "lines": 5 },
+      {
+        "kicker": "Cloud",
+        "title": "Arquitetura que escala sem drama",
+        "lines": 5
+      },
       { "kicker": "Backend", "title": "APIs que aguentam o pico", "lines": 4 },
-      { "kicker": "Produto", "title": "Do brief à produção em ritmo", "lines": 6 },
-      { "kicker": "IoT", "title": "Dispositivos falando a mesma língua", "lines": 4 },
+      {
+        "kicker": "Produto",
+        "title": "Do brief à produção em ritmo",
+        "lines": 6
+      },
+      {
+        "kicker": "IoT",
+        "title": "Dispositivos falando a mesma língua",
+        "lines": 4
+      },
       { "kicker": "IA", "title": "Modelos no fluxo do negócio", "lines": 5 },
-      { "kicker": "Fintech", "title": "Integrações que fecham o caixa", "lines": 4 },
+      {
+        "kicker": "Fintech",
+        "title": "Integrações que fecham o caixa",
+        "lines": 4
+      },
       { "kicker": "DevOps", "title": "GitOps com rollback limpo", "lines": 5 },
-      { "kicker": "Frontend", "title": "Interfaces que não travam o ship", "lines": 4 },
-      { "kicker": "Carreira", "title": "Quem entrega mais, aparece mais", "lines": 6 }
+      {
+        "kicker": "Frontend",
+        "title": "Interfaces que não travam o ship",
+        "lines": 4
+      },
+      {
+        "kicker": "Carreira",
+        "title": "Quem entrega mais, aparece mais",
+        "lines": 6
+      }
     ]
   },
   "Profile": {
@@ -167,7 +191,17 @@
         "role": "Engenheiro de Software Sênior",
         "location": "Londrina, Paraná",
         "period": "Setembro de 2024 – Atual",
-        "stack": ["Golang", "Next.js", "GitOps", "Argo CD", "Kubernetes", "AWS", "IoT", "NATS", "MQTT"],
+        "stack": [
+          "Golang",
+          "Next.js",
+          "GitOps",
+          "Argo CD",
+          "Kubernetes",
+          "AWS",
+          "IoT",
+          "NATS",
+          "MQTT"
+        ],
         "highlights": [
           "Liderei a construção da nova arquitetura robusta e agnóstica a cloud provider.",
           "Estruturei a base técnica para suportar crescimento, novos clientes e uma operação multi-tenant.",

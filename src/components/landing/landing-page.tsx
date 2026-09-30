@@ -4,9 +4,15 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight } from "lucide-react";
-import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { useRef, useState, useEffect, type CSSProperties } from "react";
+import { useTranslations } from "next-intl";
+import {
+  type CSSProperties,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { CircularMenu } from "@/components/landing/circular-menu";
 import { ContactSection } from "@/components/landing/contact-section";
 import { CyberpunkRebootSplash } from "@/components/landing/cyberpunk-reboot-splash";
@@ -15,8 +21,8 @@ import { GitflowTrajectory } from "@/components/landing/gitflow-trajectory";
 import {
   CYBERPUNK_CLASS,
   CYBERPUNK_STORAGE_KEY,
-  HeroBento,
   type CyberpunkPhase,
+  HeroBento,
 } from "@/components/landing/hero-bento";
 import {
   CyberpunkHudFrame,
@@ -27,26 +33,25 @@ import {
 import { NewspaperSurface } from "@/components/landing/newspaper-surface";
 import { LocaleSwitcher } from "@/components/locale-switcher";
 import { cyberpunkAudio } from "@/lib/cyberpunk-audio";
-import { handleNavClick } from "@/lib/smooth-scroll";
 import { getTechIconSrc } from "@/lib/tech-icons";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 type CaseItem =
   | {
-    id: string;
-    kind: "stat";
-    value: string;
-    label: string;
-  }
+      id: string;
+      kind: "stat";
+      value: string;
+      label: string;
+    }
   | {
-    id: string;
-    kind: "case";
-    company: string;
-    href: string;
-    quote: string;
-    highlight?: string;
-  };
+      id: string;
+      kind: "case";
+      company: string;
+      href: string;
+      quote: string;
+      highlight?: string;
+    };
 
 type ExperienceItem = {
   company: string;
@@ -273,7 +278,7 @@ function CasesReveal({
   );
 }
 
-function TechIconRow({
+function _TechIconRow({
   labels,
   keyPrefix,
 }: {
@@ -341,37 +346,18 @@ export function LandingPage() {
     (item): item is Extract<CaseItem, { kind: "case" }> => item.kind === "case",
   );
 
-  useEffect(() => {
-    const stored = window.sessionStorage.getItem(CYBERPUNK_STORAGE_KEY) === "1";
-    if (!stored) return;
-    setCyberpunkPhase("active");
-    document.documentElement.classList.add(CYBERPUNK_CLASS);
-    requestAnimationFrame(() => {
-      playHelmetEnter();
-      void cyberpunkAudio.resume();
-      ScrollTrigger.refresh();
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- boot once from session
-  }, []);
-
-  useEffect(() => {
-    return () => {
-      if (bootTimerRef.current !== null) window.clearTimeout(bootTimerRef.current);
-      if (visorTimerRef.current !== null) window.clearTimeout(visorTimerRef.current);
-      if (cyberpunkAudio.isEnabled()) cyberpunkAudio.disable();
-    };
-  }, []);
-
-  const clearCyberpunkAnimClasses = () => {
+  const clearCyberpunkAnimClasses = useCallback(() => {
     document.documentElement.classList.remove(
       "lp-cyberpunk-boot",
       "lp-cyberpunk-visor-enter",
     );
-  };
+  }, []);
 
-  const playHelmetEnter = () => {
-    if (bootTimerRef.current !== null) window.clearTimeout(bootTimerRef.current);
-    if (visorTimerRef.current !== null) window.clearTimeout(visorTimerRef.current);
+  const playHelmetEnter = useCallback(() => {
+    if (bootTimerRef.current !== null)
+      window.clearTimeout(bootTimerRef.current);
+    if (visorTimerRef.current !== null)
+      window.clearTimeout(visorTimerRef.current);
     clearCyberpunkAnimClasses();
 
     document.documentElement.classList.add(
@@ -439,7 +425,29 @@ export function LandingPage() {
       visorTimerRef.current = null;
       requestAnimationFrame(() => ScrollTrigger.refresh());
     }, 2400);
-  };
+  }, [clearCyberpunkAnimClasses]);
+
+  useEffect(() => {
+    const stored = window.sessionStorage.getItem(CYBERPUNK_STORAGE_KEY) === "1";
+    if (!stored) return;
+    setCyberpunkPhase("active");
+    document.documentElement.classList.add(CYBERPUNK_CLASS);
+    requestAnimationFrame(() => {
+      playHelmetEnter();
+      void cyberpunkAudio.resume();
+      ScrollTrigger.refresh();
+    });
+  }, [playHelmetEnter]);
+
+  useEffect(() => {
+    return () => {
+      if (bootTimerRef.current !== null)
+        window.clearTimeout(bootTimerRef.current);
+      if (visorTimerRef.current !== null)
+        window.clearTimeout(visorTimerRef.current);
+      if (cyberpunkAudio.isEnabled()) cyberpunkAudio.disable();
+    };
+  }, []);
 
   const requestCyberpunk = async () => {
     if (cyberpunkPhase !== "idle") return;
@@ -471,7 +479,10 @@ export function LandingPage() {
   const enterCyberpunkBoot = () => {
     setCyberpunkPhase("booting");
     document.documentElement.classList.remove("lp-cyberpunk-revealing");
-    document.documentElement.classList.add(CYBERPUNK_CLASS, "lp-cyberpunk-booting");
+    document.documentElement.classList.add(
+      CYBERPUNK_CLASS,
+      "lp-cyberpunk-booting",
+    );
   };
 
   const revealCyberpunkWorld = () => {
@@ -570,7 +581,7 @@ export function LandingPage() {
     if (!document.documentElement.classList.contains("lp-cyberpunk")) return;
     if (!cyberpunkAudio.isEnabled()) return;
     cyberpunkAudio.transition("in");
-  }, [activeSection]);
+  }, []);
 
   const nav = [
     { label: tNav("about"), href: "#about", sectionIds: ["about"] },
@@ -674,9 +685,8 @@ export function LandingPage() {
 
       const mm = gsap.matchMedia();
 
-      const stackRoot = rootRef.current?.querySelector<HTMLElement>(
-        ".lp-bento-stack",
-      );
+      const stackRoot =
+        rootRef.current?.querySelector<HTMLElement>(".lp-bento-stack");
       const panels = stackRoot
         ? gsap.utils.toArray<HTMLElement>("[data-lp-pile]", stackRoot)
         : [];
@@ -797,7 +807,13 @@ export function LandingPage() {
                 transformOrigin: "50% 50%",
               });
               gsap.set(stage, { autoAlpha: 1 });
-              if (titleEl) gsap.set(titleEl, { autoAlpha: 1, y: 0, height: "auto", marginTop: "" });
+              if (titleEl)
+                gsap.set(titleEl, {
+                  autoAlpha: 1,
+                  y: 0,
+                  height: "auto",
+                  marginTop: "",
+                });
               if (copyEl) gsap.set(copyEl, { autoAlpha: 0 });
 
               let focused = -1;
@@ -882,8 +898,7 @@ export function LandingPage() {
                   id: "lp-gitflow",
                   trigger: panel,
                   start: pinStart,
-                  end: () =>
-                    `+=${Math.round(window.innerHeight * scrollSpan)}`,
+                  end: () => `+=${Math.round(window.innerHeight * scrollSpan)}`,
                   pin: true,
                   pinSpacing: true,
                   scrub: 1.55,
@@ -923,7 +938,8 @@ export function LandingPage() {
               }
 
               commits.forEach((commit, index) => {
-                const at = (index / Math.max(commits.length - 1, 1)) * intro * 0.85;
+                const at =
+                  (index / Math.max(commits.length - 1, 1)) * intro * 0.85;
                 tl.to(
                   commit,
                   {
@@ -1141,9 +1157,7 @@ export function LandingPage() {
               }
 
               const lastJobAt =
-                jobsStart +
-                hold +
-                Math.max(cards.length - 1, 0) * (hold + hop);
+                jobsStart + hold + Math.max(cards.length - 1, 0) * (hold + hop);
               tl.to({}, { duration: hold + endHold }, lastJobAt);
 
               return;
@@ -1156,8 +1170,9 @@ export function LandingPage() {
               );
               if (cards.length === 0) return;
 
-              const label =
-                panel.querySelector<HTMLElement>("[data-lp-section-label]");
+              const label = panel.querySelector<HTMLElement>(
+                "[data-lp-section-label]",
+              );
               const wipes = cards.map((card) =>
                 card.querySelector<HTMLElement>("[data-lp-case-wipe]"),
               );
@@ -1181,7 +1196,7 @@ export function LandingPage() {
 
               setActiveCard(0);
 
-              cards.forEach((card, index) => {
+              cards.forEach((_card, index) => {
                 const wipe = wipes[index];
                 const content = contents[index];
                 const isActive = index === 0;
@@ -1349,11 +1364,7 @@ export function LandingPage() {
                     },
                     at + transition * 0.35,
                   );
-                  tl.set(
-                    prevCard,
-                    { autoAlpha: 0 },
-                    at + transition,
-                  );
+                  tl.set(prevCard, { autoAlpha: 0 }, at + transition);
                 }
               }
 
@@ -1447,7 +1458,8 @@ export function LandingPage() {
                 return;
               }
 
-              if (headlines.length) gsap.set(headlines, { autoAlpha: 0, y: 18 });
+              if (headlines.length)
+                gsap.set(headlines, { autoAlpha: 0, y: 18 });
               if (lists.length) gsap.set(lists, { autoAlpha: 0, y: 24 });
               if (reveals.length) {
                 gsap.set(reveals, {
@@ -1455,7 +1467,8 @@ export function LandingPage() {
                   transformOrigin: "left center",
                 });
               }
-              if (lines.length) gsap.set(lines, { scaleX: 0, transformOrigin: "left center" });
+              if (lines.length)
+                gsap.set(lines, { scaleX: 0, transformOrigin: "left center" });
 
               const intro = 2.2;
               const step = 1.15;
@@ -1502,9 +1515,8 @@ export function LandingPage() {
                 const headline = block.querySelector<HTMLElement>(
                   "[data-lp-edu-headline]",
                 );
-                const list = block.querySelector<HTMLElement>(
-                  "[data-lp-edu-list]",
-                );
+                const list =
+                  block.querySelector<HTMLElement>("[data-lp-edu-list]");
                 const reveal = block.querySelector<HTMLElement>(
                   "[data-lp-edu-reveal]",
                 );
@@ -1677,7 +1689,8 @@ export function LandingPage() {
               transformOrigin: "left center",
             });
           }
-          if (lines.length) gsap.set(lines, { scaleX: 0, transformOrigin: "left center" });
+          if (lines.length)
+            gsap.set(lines, { scaleX: 0, transformOrigin: "left center" });
 
           headlines.forEach((el) => {
             ScrollTrigger.create({
@@ -1804,7 +1817,10 @@ export function LandingPage() {
   );
 
   return (
-    <div ref={rootRef} className="relative min-h-dvh bg-[var(--lp-paper)] text-[var(--lp-ink)]">
+    <div
+      ref={rootRef}
+      className="relative min-h-dvh bg-[var(--lp-paper)] text-[var(--lp-ink)]"
+    >
       <CyberpunkHudFrame
         muteLabel={tHero("cyberpunkMute")}
         unmuteLabel={tHero("cyberpunkUnmute")}
@@ -1830,7 +1846,10 @@ export function LandingPage() {
         onComplete={confirmCyberpunkStart}
         onAbort={cancelCyberpunkAwaiting}
       />
-      <div className="lp-progress pointer-events-none fixed top-0 right-0 left-0 z-[120] h-1 bg-black" aria-hidden>
+      <div
+        className="lp-progress pointer-events-none fixed top-0 right-0 left-0 z-[120] h-1 bg-black"
+        aria-hidden
+      >
         <div
           ref={progressRef}
           className="lp-progress-bar h-full w-full origin-left scale-x-0 will-change-transform"
@@ -1876,7 +1895,9 @@ export function LandingPage() {
                 void requestCyberpunk();
               }}
               onCyberpunkExit={exitCyberpunk}
-              localeSwitcher={<LocaleSwitcher className="hidden md:inline-flex" />}
+              localeSwitcher={
+                <LocaleSwitcher className="hidden md:inline-flex" />
+              }
               backdropStories={
                 tHero.raw("backdropStories") as {
                   kicker: string;
